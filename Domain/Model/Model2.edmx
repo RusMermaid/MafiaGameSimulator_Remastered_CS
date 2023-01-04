@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Joueurs" EntityType="Model.Store.Joueurs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Parties" EntityType="Model.Store.Parties" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cartes" EntityType="Model.Store.Cartes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JoueurParties" EntityType="Model.Store.JoueurParties" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Des" EntityType="Model.Store.Des" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JoueurPartieCarte" EntityType="Model.Store.JoueurPartieCarte" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JoueurPartieDe" EntityType="Model.Store.JoueurPartieDe" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PartieCarte" EntityType="Model.Store.PartieCarte" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PartieCartePoubelle" EntityType="Model.Store.PartieCartePoubelle" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="JoueurPartieJoueur" Association="Model.Store.PartiesJoueesJoueur">
+      <End Role="Joueur" EntitySet="Joueurs" />
+      <End Role="PartieJoueur" EntitySet="JoueurParties" />
+    </AssociationSet>
+    <AssociationSet Name="PartieJoueurPartie1" Association="Model.Store.JoueursParticipantsJoueurPartie">
+      <End Role="PartieJoueur" EntitySet="JoueurParties" />
+      <End Role="Partie" EntitySet="Parties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JoueurPartieCarte_JoueurPartie" Association="Model.Store.FK_JoueurPartieCarte_JoueurPartie">
+      <End Role="JoueurPartie" EntitySet="JoueurParties" />
+      <End Role="JoueurPartieCarte" EntitySet="JoueurPartieCarte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JoueurPartieCarte_Carte" Association="Model.Store.FK_JoueurPartieCarte_Carte">
+      <End Role="Carte" EntitySet="Cartes" />
+      <End Role="JoueurPartieCarte" EntitySet="JoueurPartieCarte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JoueurPartieDe_JoueurPartie" Association="Model.Store.FK_JoueurPartieDe_JoueurPartie">
+      <End Role="JoueurPartie" EntitySet="JoueurParties" />
+      <End Role="JoueurPartieDe" EntitySet="JoueurPartieDe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JoueurPartieDe_De" Association="Model.Store.FK_JoueurPartieDe_De">
+      <End Role="De" EntitySet="Des" />
+      <End Role="JoueurPartieDe" EntitySet="JoueurPartieDe" />
+    </AssociationSet>
+    <AssociationSet Name="JoueurPartie1" Association="Model.Store.JoueurPartie1">
+      <End Role="Joueur" EntitySet="Joueurs" />
+      <End Role="Partie" EntitySet="Parties" />
+    </AssociationSet>
+    <AssociationSet Name="JoueurPartiePartie" Association="Model.Store.JoueurPartiePartie">
+      <End Role="JoueurPartie" EntitySet="JoueurParties" />
+      <End Role="Partie" EntitySet="Parties" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartieCarte_Partie" Association="Model.Store.FK_PartieCarte_Partie">
+      <End Role="Partie" EntitySet="Parties" />
+      <End Role="PartieCarte" EntitySet="PartieCarte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartieCarte_Carte" Association="Model.Store.FK_PartieCarte_Carte">
+      <End Role="Carte" EntitySet="Cartes" />
+      <End Role="PartieCarte" EntitySet="PartieCarte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartieCartePoubelle_Partie" Association="Model.Store.FK_PartieCartePoubelle_Partie">
+      <End Role="Partie" EntitySet="Parties" />
+      <End Role="PartieCartePoubelle" EntitySet="PartieCartePoubelle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartieCartePoubelle_Carte" Association="Model.Store.FK_PartieCartePoubelle_Carte">
+      <End Role="Carte" EntitySet="Cartes" />
+      <End Role="PartieCartePoubelle" EntitySet="PartieCartePoubelle" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Joueurs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pseudo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mdp" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parties">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateHeureCreation" Type="datetime" Nullable="false" />
+    <Property Name="Sens" Type="bit" Nullable="false" DefaultValue="true" />
+    <Property Name="JoueurId" Type="int" Nullable="true" />
+    <Property Name="JoueurCourant_Id" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Cartes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeEffet" Type="int" Nullable="false" />
+    <Property Name="Cout" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JoueurParties">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JoueurId" Type="int" Nullable="false" />
+    <Property Name="OrdreJoueur" Type="int" Nullable="false" />
+    <Property Name="PartieId" Type="int" Nullable="false" />
+    <Property Name="EnPartie" Type="bit" Nullable="false" DefaultValue="true" />
+  </EntityType>
+  <EntityType Name="Des">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Valeur" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JoueurPartieCarte">
+    <Key>
+      <PropertyRef Name="JoueurPartieCarte_Carte_Id" />
+      <PropertyRef Name="CartesMain_Id" />
+    </Key>
+    <Property Name="JoueurPartieCarte_Carte_Id" Type="int" Nullable="false" />
+    <Property Name="CartesMain_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JoueurPartieDe">
+    <Key>
+      <PropertyRef Name="JoueurPartieDe_De_Id" />
+      <PropertyRef Name="DesMain_Id" />
+    </Key>
+    <Property Name="JoueurPartieDe_De_Id" Type="int" Nullable="false" />
+    <Property Name="DesMain_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PartieCarte">
+    <Key>
+      <PropertyRef Name="PartieCarte_Carte_Id" />
+      <PropertyRef Name="CartesPioche_Id" />
+    </Key>
+    <Property Name="PartieCarte_Carte_Id" Type="int" Nullable="false" />
+    <Property Name="CartesPioche_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PartieCartePoubelle">
+    <Key>
+      <PropertyRef Name="PartieCartePoubelle_Carte_Id" />
+      <PropertyRef Name="CartesPoubelle_Id" />
+    </Key>
+    <Property Name="PartieCartePoubelle_Carte_Id" Type="int" Nullable="false" />
+    <Property Name="CartesPoubelle_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PartiesJoueesJoueur">
+    <End Role="Joueur" Type="Model.Store.Joueurs" Multiplicity="1" />
+    <End Role="PartieJoueur" Type="Model.Store.JoueurParties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Joueur">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartieJoueur">
+        <PropertyRef Name="JoueurId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JoueursParticipantsJoueurPartie">
+    <End Role="PartieJoueur" Type="Model.Store.JoueurParties" Multiplicity="*" />
+    <End Role="Partie" Type="Model.Store.Parties" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Partie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartieJoueur">
+        <PropertyRef Name="PartieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JoueurPartie1">
+    <End Role="Joueur" Type="Model.Store.Joueurs" Multiplicity="0..1" />
+    <End Role="Partie" Type="Model.Store.Parties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Joueur">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Partie">
+        <PropertyRef Name="JoueurId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JoueurPartiePartie">
+    <End Role="JoueurPartie" Type="Model.Store.JoueurParties" Multiplicity="0..1" />
+    <End Role="Partie" Type="Model.Store.Parties" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JoueurPartie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Partie">
+        <PropertyRef Name="JoueurCourant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JoueurPartieCarte_JoueurPartie">
+    <End Role="JoueurPartie" Type="Model.Store.JoueurParties" Multiplicity="1" />
+    <End Role="JoueurPartieCarte" Type="Model.Store.JoueurPartieCarte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JoueurPartie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JoueurPartieCarte">
+        <PropertyRef Name="JoueurPartieCarte_Carte_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JoueurPartieCarte_Carte">
+    <End Role="JoueurPartieCarte" Type="Model.Store.JoueurPartieCarte" Multiplicity="*" />
+    <End Role="Carte" Type="Model.Store.Cartes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Carte">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JoueurPartieCarte">
+        <PropertyRef Name="CartesMain_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JoueurPartieDe_JoueurPartie">
+    <End Role="JoueurPartie" Type="Model.Store.JoueurParties" Multiplicity="1" />
+    <End Role="JoueurPartieDe" Type="Model.Store.JoueurPartieDe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JoueurPartie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JoueurPartieDe">
+        <PropertyRef Name="JoueurPartieDe_De_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JoueurPartieDe_De">
+    <End Role="JoueurPartieDe" Type="Model.Store.JoueurPartieDe" Multiplicity="*" />
+    <End Role="De" Type="Model.Store.Des" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="De">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JoueurPartieDe">
+        <PropertyRef Name="DesMain_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartieCarte_Partie">
+    <End Role="Partie" Type="Model.Store.Parties" Multiplicity="1" />
+    <End Role="PartieCarte" Type="Model.Store.PartieCarte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartieCarte">
+        <PropertyRef Name="PartieCarte_Carte_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartieCarte_Carte">
+    <End Role="PartieCarte" Type="Model.Store.PartieCarte" Multiplicity="*" />
+    <End Role="Carte" Type="Model.Store.Cartes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Carte">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartieCarte">
+        <PropertyRef Name="CartesPioche_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartieCartePoubelle_Partie">
+    <End Role="Partie" Type="Model.Store.Parties" Multiplicity="1" />
+    <End Role="PartieCartePoubelle" Type="Model.Store.PartieCartePoubelle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartieCartePoubelle">
+        <PropertyRef Name="PartieCartePoubelle_Carte_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartieCartePoubelle_Carte">
+    <End Role="PartieCartePoubelle" Type="Model.Store.PartieCartePoubelle" Multiplicity="*" />
+    <End Role="Carte" Type="Model.Store.Cartes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Carte">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PartieCartePoubelle">
+        <PropertyRef Name="CartesPoubelle_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Joueurs" EntityType="Model.Joueur" />
+          <EntitySet Name="Parties" EntityType="Model.Partie" />
+          <EntitySet Name="Cartes" EntityType="Model.Carte" />
+          <EntitySet Name="JoueurParties" EntityType="Model.JoueurPartie" />
+          <AssociationSet Name="JoueurPartieJoueur" Association="Model.PartiesJoueesJoueur">
+            <End Role="Joueur" EntitySet="Joueurs" />
+            <End Role="PartieJoueur" EntitySet="JoueurParties" />
+          </AssociationSet>
+          <AssociationSet Name="PartieJoueurPartie1" Association="Model.JoueursParticipantsJoueurPartie">
+            <End EntitySet="JoueurParties" Role="PartieJoueur" />
+            <End EntitySet="Parties" Role="Partie" />
+          </AssociationSet>
+          <EntitySet Name="Des" EntityType="Model.De" />
+          <AssociationSet Name="JoueurPartieCarte" Association="Model.JoueurPartieCarte">
+            <End Role="JoueurPartie" EntitySet="JoueurParties" />
+            <End Role="Carte" EntitySet="Cartes" />
+          </AssociationSet>
+          <AssociationSet Name="JoueurPartieDe" Association="Model.JoueurPartieDe">
+            <End Role="JoueurPartie" EntitySet="JoueurParties" />
+            <End Role="De" EntitySet="Des" />
+          </AssociationSet>
+          <AssociationSet Name="JoueurPartie1" Association="Model.JoueurPartie1">
+            <End Role="Joueur" EntitySet="Joueurs" />
+            <End Role="Partie" EntitySet="Parties" />
+          </AssociationSet>
+          <AssociationSet Name="JoueurPartiePartie" Association="Model.JoueurPartiePartie">
+            <End Role="JoueurPartie" EntitySet="JoueurParties" />
+            <End Role="Partie" EntitySet="Parties" />
+          </AssociationSet>
+          <AssociationSet Name="PartieCarte" Association="Model.PartieCarte">
+            <End Role="Partie" EntitySet="Parties" />
+            <End Role="Carte" EntitySet="Cartes" />
+          </AssociationSet>
+          <AssociationSet Name="PartieCartePoubelle" Association="Model.PartieCartePoubelle">
+            <End Role="Partie" EntitySet="Parties" />
+            <End Role="Carte" EntitySet="Cartes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Joueur">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pseudo" Type="String" Nullable="false" />
+          <Property Name="Mdp" Type="String" Nullable="false" />
+          <NavigationProperty Name="PartiesJouees" Relationship="Model.PartiesJoueesJoueur" FromRole="Joueur" ToRole="PartieJoueur" />
+        </EntityType>
+        <EntityType Name="Partie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" Nullable="false" />
+          <Property Name="DateHeureCreation" Type="DateTime" Nullable="false" />
+          <Property Name="Sens" Type="Boolean" Nullable="false" DefaultValue="True" />
+          <NavigationProperty Name="JoueursParticipants" Relationship="Model.JoueursParticipantsJoueurPartie" FromRole="Partie" ToRole="PartieJoueur" />
+          <NavigationProperty Name="Vainqueur" Relationship="Model.JoueurPartie1" FromRole="Partie" ToRole="Joueur" />
+          <Property Name="JoueurId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="JoueurCourant" Relationship="Model.JoueurPartiePartie" FromRole="Partie" ToRole="JoueurPartie" />
+          <NavigationProperty Name="CartesPioche" Relationship="Model.PartieCarte" FromRole="Partie" ToRole="Carte" />
+          <NavigationProperty Name="CartesPoubelle" Relationship="Model.PartieCartePoubelle" FromRole="Partie" ToRole="Carte" />
+        </EntityType>
+        <EntityType Name="Carte">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodeEffet" Type="Int32" Nullable="false" />
+          <Property Name="Cout" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JoueurPartie">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Joueur" Relationship="Model.PartiesJoueesJoueur" FromRole="PartieJoueur" ToRole="Joueur" />
+          <Property Name="JoueurId" Type="Int32" Nullable="false" />
+          <Property Name="OrdreJoueur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Partie" Relationship="Model.JoueursParticipantsJoueurPartie" FromRole="PartieJoueur" ToRole="Partie" />
+          <Property Name="PartieId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CartesMain" Relationship="Model.JoueurPartieCarte" FromRole="JoueurPartie" ToRole="Carte" />
+          <NavigationProperty Name="DesMain" Relationship="Model.JoueurPartieDe" FromRole="JoueurPartie" ToRole="De" />
+          <Property Name="EnPartie" Type="Boolean" Nullable="false" DefaultValue="True" />
+        </EntityType>
+        <Association Name="PartiesJoueesJoueur">
+          <End Type="Model.Joueur" Role="Joueur" Multiplicity="1" />
+          <End Type="Model.JoueurPartie" Role="PartieJoueur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Joueur">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PartieJoueur">
+              <PropertyRef Name="JoueurId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JoueursParticipantsJoueurPartie">
+          <End Type="Model.JoueurPartie" Multiplicity="*" Role="PartieJoueur" />
+          <End Type="Model.Partie" Multiplicity="1" Role="Partie" />
+          <ReferentialConstraint>
+            <Principal Role="Partie">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PartieJoueur">
+              <PropertyRef Name="PartieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="De">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Valeur" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="JoueurPartieCarte">
+          <End Type="Model.JoueurPartie" Role="JoueurPartie" Multiplicity="*" />
+          <End Type="Model.Carte" Role="Carte" Multiplicity="*" />
+        </Association>
+        <Association Name="JoueurPartieDe">
+          <End Type="Model.JoueurPartie" Role="JoueurPartie" Multiplicity="*" />
+          <End Type="Model.De" Role="De" Multiplicity="*" />
+        </Association>
+        <Association Name="JoueurPartie1">
+          <End Type="Model.Joueur" Role="Joueur" Multiplicity="0..1" />
+          <End Type="Model.Partie" Role="Partie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Joueur">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Partie">
+              <PropertyRef Name="JoueurId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JoueurPartiePartie">
+          <End Type="Model.JoueurPartie" Role="JoueurPartie" Multiplicity="0..1" />
+          <End Type="Model.Partie" Role="Partie" Multiplicity="0..1" />
+        </Association>
+        <Association Name="PartieCarte">
+          <End Type="Model.Partie" Role="Partie" Multiplicity="*" />
+          <End Type="Model.Carte" Role="Carte" Multiplicity="*" />
+        </Association>
+        <Association Name="PartieCartePoubelle">
+          <End Type="Model.Partie" Role="Partie" Multiplicity="*" />
+          <End Type="Model.Carte" Role="Carte" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="Joueurs">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Joueur)">
+        <MappingFragment StoreEntitySet="Joueurs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Pseudo" ColumnName="Pseudo" />
+          <ScalarProperty Name="Mdp" ColumnName="Mdp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parties">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Partie)">
+        <MappingFragment StoreEntitySet="Parties">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="DateHeureCreation" ColumnName="DateHeureCreation" />
+          <ScalarProperty Name="Sens" ColumnName="Sens" />
+          <ScalarProperty Name="JoueurId" ColumnName="JoueurId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cartes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Carte)">
+        <MappingFragment StoreEntitySet="Cartes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CodeEffet" ColumnName="CodeEffet" />
+          <ScalarProperty Name="Cout" ColumnName="Cout" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JoueurParties">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.JoueurPartie)">
+        <MappingFragment StoreEntitySet="JoueurParties">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="JoueurId" ColumnName="JoueurId" />
+          <ScalarProperty Name="OrdreJoueur" ColumnName="OrdreJoueur" />
+          <ScalarProperty Name="PartieId" ColumnName="PartieId" />
+          <ScalarProperty Name="EnPartie" ColumnName="EnPartie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Des">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.De)">
+        <MappingFragment StoreEntitySet="Des">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Valeur" ColumnName="Valeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="JoueurPartieCarte" TypeName="Model.JoueurPartieCarte" StoreEntitySet="JoueurPartieCarte">
+      <EndProperty Name="JoueurPartie">
+        <ScalarProperty Name="Id" ColumnName="JoueurPartieCarte_Carte_Id" />
+      </EndProperty>
+      <EndProperty Name="Carte">
+        <ScalarProperty Name="Id" ColumnName="CartesMain_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="JoueurPartieDe" TypeName="Model.JoueurPartieDe" StoreEntitySet="JoueurPartieDe">
+      <EndProperty Name="JoueurPartie">
+        <ScalarProperty Name="Id" ColumnName="JoueurPartieDe_De_Id" />
+      </EndProperty>
+      <EndProperty Name="De">
+        <ScalarProperty Name="Id" ColumnName="DesMain_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="JoueurPartiePartie" TypeName="Model.JoueurPartiePartie" StoreEntitySet="Parties">
+      <EndProperty Name="JoueurPartie">
+        <ScalarProperty Name="Id" ColumnName="JoueurCourant_Id" />
+      </EndProperty>
+      <EndProperty Name="Partie">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <Condition ColumnName="JoueurCourant_Id" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PartieCarte" TypeName="Model.PartieCarte" StoreEntitySet="PartieCarte">
+      <EndProperty Name="Partie">
+        <ScalarProperty Name="Id" ColumnName="PartieCarte_Carte_Id" />
+      </EndProperty>
+      <EndProperty Name="Carte">
+        <ScalarProperty Name="Id" ColumnName="CartesPioche_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PartieCartePoubelle" TypeName="Model.PartieCartePoubelle" StoreEntitySet="PartieCartePoubelle">
+      <EndProperty Name="Partie">
+        <ScalarProperty Name="Id" ColumnName="PartieCartePoubelle_Carte_Id" />
+      </EndProperty>
+      <EndProperty Name="Carte">
+        <ScalarProperty Name="Id" ColumnName="CartesPoubelle_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f7968c05e6f441c2a7293d1faafd58a4" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="Model.Joueur" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Partie" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Carte" Width="1.5" PointX="10" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.JoueurPartie" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.De" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.PartiesJoueesJoueur" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="Model.JoueursParticipantsJoueurPartie" />
+        <AssociationConnector Association="Model.JoueurPartieCarte" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.JoueurPartieDe" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.JoueurPartie1" ManuallyRouted="true" >
+          <ConnectorPoint PointX="1.4605850206057962" PointY="4.4129850260416665" />
+          <ConnectorPoint PointX="1.4605850206057962" PointY="7.6512350724316853" />
+          <ConnectorPoint PointX="5.9530923317268538" PointY="7.6512350724316853" />
+          <ConnectorPoint PointX="5.9530923317268538" PointY="5.1917936197916656" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.JoueurPartiePartie" />
+        <AssociationConnector Association="Model.PartieCarte" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="Model.PartieCartePoubelle" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Domain.GestionPartieImpl" CodeBehind="GestionPartieImpl.svc.cs" %>
