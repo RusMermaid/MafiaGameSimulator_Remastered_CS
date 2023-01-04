@@ -1,0 +1,16 @@
+﻿@model List<Domain.Dto.JoueurPartieDto>
+
+<h3>
+    Joueurs inscrits :
+</h3>
+    <ul>
+        @foreach (var jp in Model)
+        {
+            <li>@jp.Joueur.Pseudo</li>
+        }
+    </ul>
+
+    En attente d'autres joueurs...
+
+
+<i id="status" style="display:none" data-status="@(TempData["statut"])"></i>

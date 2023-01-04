@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="50"
+   height="50"
+   viewBox="0 0 49.999998 49.999998"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="de_M.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="42.378847"
+     inkscape:cy="38.802503"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer3"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="987"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     units="px" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1002.3622)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer 2"
+     style="display:inline"
+     transform="translate(0,-50)">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4152"
+       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"><flowRegion
+         id="flowRegion4154"><rect
+           id="rect4156"
+           width="78.53936"
+           height="72.478447"
+           x="11.364216"
+           y="21.46064" /></flowRegion><flowPara
+         id="flowPara4158"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:90px;font-family:Corleone;-inkscape-font-specification:Corleone;fill:#ffffff">M  </flowPara></flowRoot>    <g
+       id="g4405"
+       transform="matrix(0.49796897,0,0,0.49796897,0.38488385,50.116374)">
+      <rect
+         ry="4.5741181"
+         rx="4.1245542"
+         y="954.83844"
+         x="1.9440002"
+         height="96.173637"
+         width="95.604942"
+         id="rect3431"
+         style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.22050583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         transform="translate(0,-952.36218)" />
+      <g
+         id="flowRoot4160"
+         style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         transform="matrix(1.248671,0,0,1.248671,-118.21763,-10.885045)">
+        <path
+           sodipodi:nodetypes="cccscccccccccccscccccsscccccccccc"
+           inkscape:connector-curvature="0"
+           id="path4242"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:70px;font-family:Corleone;-inkscape-font-specification:Corleone;fill:#ffffff;stroke:none"
+           d="m 168.91414,19.799159 -11.65528,9.160156 -11.75007,0 0,43.955078 c 0,2.825521 1.07096,4.648437 3.21289,5.46875 l 0,0.239258 -16.44043,0 0,-0.205078 c 2.02799,-0.706381 3.04199,-2.517904 3.04199,-5.434571 l 0.0342,-24.916992 -0.30762,0 -6.25488,29.838867 -1.09375,0 -5.19531,-29.667968 -0.27344,0 0,23.959961 c 0,1.526693 0.42155,2.89388 1.26465,4.101562 0.77474,1.070963 1.67481,1.788737 2.7002,2.15332 l 0,0.170899 -15.58594,0 0,-0.170899 c 2.64323,-1.048177 3.96484,-3.144531 3.96484,-6.289062 l 0,-46.279297 c 0,-3.28125 -1.07096,-5.252279 -3.21289,-5.913086 l 0,-0.170898 15.34668,0 0,0.170898 c -0.93425,0.319011 -1.27604,1.230469 -1.02539,2.734375 l 3.79395,22.490235 4.58007,-22.114258 c 0.29623,-1.389974 0.10254,-2.335612 -0.58105,-2.836914 l -0.0342,-0.444336 z" />
+      </g>
+    </g>
+  </g>
+</svg>

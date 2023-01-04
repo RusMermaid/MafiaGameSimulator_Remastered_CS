@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50368/GestionPartieImpl.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Domain.Dto" />
+  <xs:element name="CreerPartie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nomPartie" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nomJoueur" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreerPartieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="CreerPartieResult" nillable="true" type="q1:PartieDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RejoindrePartie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pseudo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RejoindrePartieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="RejoindrePartieResult" nillable="true" type="q2:PartieDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CommencerPartie">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CommencerPartieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CommencerPartieResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPartieDebug">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPartieDebugResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPartieDebugResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoirPartie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pseudo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoirPartieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="VoirPartieResult" nillable="true" type="q3:ArrayOfPartieDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LancerPartie">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LancerPartieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="LancerPartieResult" nillable="true" type="q4:PartieDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="piocherCarte">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="piocherCarteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="piocherCarteResult" nillable="true" type="q5:CarteDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getJoueurParticipantDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getJoueurParticipantDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="getJoueurParticipantDtoResult" nillable="true" type="q6:JoueurPartieDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListJoueurParticipantsDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListJoueurParticipantsDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="getListJoueurParticipantsDtoResult" nillable="true" type="q7:ArrayOfJoueurPartieDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListDesDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListDesDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="getListDesDtoResult" nillable="true" type="q8:ArrayOfDeDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListCartesDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListCartesDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="getListCartesDtoResult" nillable="true" type="q9:ArrayOfCarteDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getJoueurDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getJoueurDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="getJoueurDtoResult" nillable="true" type="q10:JoueurDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lancerDes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lancerDesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="lancerDesResult" nillable="true" type="q11:ArrayOfDeDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="autoriserCarte">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJoueurPartie" type="xs:int" />
+        <xs:element minOccurs="0" name="cout" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="autoriserCarteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="autoriserCarteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="donnerDe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+        <xs:element minOccurs="0" name="IdJoueurCible" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="donnerDeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="donnerDeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="next">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="nextResult" nillable="true" type="q12:JoueurPartieDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supprimerUnDe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supprimerUnDeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supprimerDeuxDes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="supprimerDeuxDesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="donnerDeAGaucheOuDroite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sens" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="donnerDeAGaucheOuDroiteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rejouerEtChangementDeSens">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rejouerEtChangementDeSensResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prendreUneCarteDUnJoueur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+        <xs:element minOccurs="0" name="IdJoueurPartieCible" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prendreUneCarteDUnJoueurResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="donnerUnDeAUnJoueur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+        <xs:element minOccurs="0" name="IdJoueurPartieCible" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="donnerUnDeAUnJoueurResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ciblerJoueurQUUneCarte">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartieCible" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ciblerJoueurQUUneCarteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="piocheTroisCartes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="piocheTroisCartesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="piocheTroisCartesResult" nillable="true" type="q13:ArrayOfCarteDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="plusQueDeuxCartesPourLesAutres">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="plusQueDeuxCartesPourLesAutresResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="jeterCartePoubelle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+        <xs:element minOccurs="0" name="IdCarte" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="jeterCartePoubelleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="jeterCartePoubelleResult" nillable="true" type="q14:CarteDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="quitterPartie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="quitterPartieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="quitterPartieResult" nillable="true" type="q15:JoueurPartieDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vainqueurParForfait">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vainqueurParForfaitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="vainqueurParForfaitResult" nillable="true" type="q16:JoueurDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vainqueur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdJoueurPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vainqueurResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="vainqueurResult" nillable="true" type="q17:JoueurDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGameState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nomJoueur" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGameStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="getGameStateResult" nillable="true" type="q18:GameStateDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCarteDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdCarte" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getCarteDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="getCarteDtoResult" nillable="true" type="q19:CarteDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDeDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdDe" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDeDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="getDeDtoResult" nillable="true" type="q20:DeDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="annuler">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="annulerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPartieDto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPartieDtoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="getPartieDtoResult" nillable="true" type="q21:PartieDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getLastCartePoubelle">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getLastCartePoubelleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="getLastCartePoubelleResult" nillable="true" type="q22:CarteDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getJoueurPartie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pseudo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idPartie" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getJoueurPartieResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Domain.Dto" minOccurs="0" name="getJoueurPartieResult" nillable="true" type="q23:JoueurPartieDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

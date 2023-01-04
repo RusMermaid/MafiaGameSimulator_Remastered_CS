@@ -1,0 +1,48 @@
+﻿@model List<Domain.Dto.PartieDto>
+
+<h3>
+    Parties jouées
+</h3>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Nom
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Vainqueur
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>
+                    @p.Nom
+                </td>
+                <td>
+                    @p.DateHeureCreation.Hour : @p.DateHeureCreation.Minute @p.DateHeureCreation.Day / @p.DateHeureCreation.Month / @p.DateHeureCreation.Year
+                </td>
+
+                @if (@p.Vainqueur != null)
+                {
+                    <td>
+                        @p.Vainqueur.Pseudo
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Pas de vainqueur
+                    </td>
+                }
+
+            </tr>
+        }
+    </tbody>
+</table>

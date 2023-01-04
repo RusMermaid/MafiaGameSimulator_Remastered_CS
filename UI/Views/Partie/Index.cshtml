@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Your Account";
+}
+
+<h2>Mafia Game Board</h2>
+<h3>Bienvenue @ViewData["username"]</h3>
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="javascript:showCreer()"> Créer partie </a>
+                </li>
+                <li>
+                    @Html.ActionLink("Rejoindre une partie", "Rejoindre", new { controller = "Partie" })
+                </li>
+                <li>
+                    <a href="javascript:showVoirPartiesJouees()"> Voir Parties Jouees</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="Creer">
+    @{Html.RenderAction("Creer", new { controller = "Partie" });}
+</div>
+
+<div id="VoirPartiesJouees" style="display:none;">
+    @{Html.RenderAction("VoirPartiesJouees", new { controller = "Partie" });}
+</div>
+
+<script type="text/javascript">
+    function showCreer() {
+        $('#VoirPartiesJouees').hide();
+        $('#VoirPartiesDisponibles').hide();
+        $('#Creer').show();
+    }
+
+    function showVoirPartiesJouees() {
+        $('#Creer').hide();
+        $('#VoirPartiesDisponibles').hide();
+        $('#VoirPartiesJouees').show();
+    }
+</script>

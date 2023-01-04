@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e613822c-b02f-4277-90db-a230a79ab95c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50368/GestionPartieImpl.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GestionPartieImpl.wsdl" MetadataType="Wsdl" ID="7dfccf42-2d95-477c-8c6b-a9f43d259477" SourceId="1" SourceUrl="http://localhost:50368/GestionPartieImpl.svc?wsdl" />
+    <MetadataFile FileName="GestionPartieImpl.disco" MetadataType="Disco" ID="0e96b5ac-b8a4-44a3-9e40-c335879b3114" SourceId="1" SourceUrl="http://localhost:50368/GestionPartieImpl.svc?disco" />
+    <MetadataFile FileName="GestionPartieImpl.xsd" MetadataType="Schema" ID="2bd70179-ecfe-4ad1-96f2-48d26328fda5" SourceId="1" SourceUrl="http://localhost:50368/GestionPartieImpl.svc?xsd=xsd3" />
+    <MetadataFile FileName="GestionPartieImpl1.xsd" MetadataType="Schema" ID="45a189e2-d197-4e94-9dc5-8959a2d565f6" SourceId="1" SourceUrl="http://localhost:50368/GestionPartieImpl.svc?xsd=xsd2" />
+    <MetadataFile FileName="GestionPartieImpl2.xsd" MetadataType="Schema" ID="f8cab2cb-da46-4a4f-8170-f58b854d15ea" SourceId="1" SourceUrl="http://localhost:50368/GestionPartieImpl.svc?xsd=xsd1" />
+    <MetadataFile FileName="GestionPartieImpl3.xsd" MetadataType="Schema" ID="fc4680ba-0d33-4c11-b385-45b94d09e6b7" SourceId="1" SourceUrl="http://localhost:50368/GestionPartieImpl.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

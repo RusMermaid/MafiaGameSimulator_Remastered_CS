@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Domain.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Domain.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50368/GestionPartieImpl.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Domain" />
+  <xs:complexType name="ArrayOfPartieDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PartieDto" nillable="true" type="tns:PartieDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPartieDto" nillable="true" type="tns:ArrayOfPartieDto" />
+  <xs:complexType name="PartieDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateHeureCreation" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sens" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="Vainqueur" nillable="true" type="q1:JoueurDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartieDto" nillable="true" type="tns:PartieDto" />
+  <xs:complexType name="CarteDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeEffet" type="xs:int" />
+      <xs:element minOccurs="0" name="Cout" type="xs:int" />
+      <xs:element minOccurs="0" name="Effet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EffetComplet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarteDto" nillable="true" type="tns:CarteDto" />
+  <xs:complexType name="JoueurPartieDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Domain" minOccurs="0" name="Joueur" nillable="true" type="q2:JoueurDto" />
+      <xs:element minOccurs="0" name="JoueurId" type="xs:int" />
+      <xs:element minOccurs="0" name="OrdreJoueur" type="xs:int" />
+      <xs:element minOccurs="0" name="PartieCourante" nillable="true" type="tns:PartieDto" />
+      <xs:element minOccurs="0" name="PartieId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JoueurPartieDto" nillable="true" type="tns:JoueurPartieDto" />
+  <xs:complexType name="ArrayOfJoueurPartieDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JoueurPartieDto" nillable="true" type="tns:JoueurPartieDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJoueurPartieDto" nillable="true" type="tns:ArrayOfJoueurPartieDto" />
+  <xs:complexType name="ArrayOfDeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeDto" nillable="true" type="tns:DeDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeDto" nillable="true" type="tns:ArrayOfDeDto" />
+  <xs:complexType name="DeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Valeur" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeDto" nillable="true" type="tns:DeDto" />
+  <xs:complexType name="ArrayOfCarteDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarteDto" nillable="true" type="tns:CarteDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarteDto" nillable="true" type="tns:ArrayOfCarteDto" />
+</xs:schema>

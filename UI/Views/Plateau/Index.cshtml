@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@model UI.Models.ModelPlateau
+
+@{
+    ViewBag.Title = "Partie" + ViewData["partie"];
+}
+
+<div id="affichage-plateau" class="container game-container">
+    @{Html.RenderPartial("RefreshPlateau", Model);}
+</div>

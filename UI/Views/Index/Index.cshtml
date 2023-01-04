@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model UI.Models.UserModel
+
+@{
+    ViewBag.Title = "Welcome";
+    //TODO ajouter un lien vers l'écran d'enregistrement d'utilisateur
+}
+<div class="panel">
+    <div class="panel-heading">
+        <h2>Mafia Board Game - Connexion</h2>
+    </div>
+    <div class="panel-body">
+        @if (TempData["error"] != null)
+        {
+        <div class="alert alert-danger">
+            @TempData["error"]
+        </div>
+        }
+
+        @using (Html.BeginForm("LogIn", "Joueur", FormMethod.Post))
+        {
+        <div class="form-group">
+            @Html.LabelFor(m => Model.Pseudo, "Nom d'utilisateur")
+            @Html.TextBoxFor(m => Model.Pseudo, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => Model.Mdp, "Mot de passe")
+            @Html.PasswordFor(m => Model.Mdp, new { @class = "form-control" })
+        </div>
+        <br />
+        <input type="submit" value="Se connecter" class="btn btn-primary" />
+        }
+        <div>
+            Pas encore de compte ?
+            @Html.ActionLink("Créer un compte", "Register", new { controller = "Joueur" }, new { @class = "" })
+
+        </div>
+
+    </div>
+</div>

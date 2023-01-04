@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Domain.Dto" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Domain.Dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="PartieDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateHeureCreation" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Etat" type="tns:ETAT_PARTIE" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="JoueurCourant" nillable="true" type="tns:JoueurPartieDto" />
+      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sens" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Vainqueur" nillable="true" type="tns:JoueurDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartieDto" nillable="true" type="tns:PartieDto" />
+  <xs:simpleType name="ETAT_PARTIE">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INSCRIPTION" />
+      <xs:enumeration value="EN_COURS" />
+      <xs:enumeration value="TERMINE" />
+      <xs:enumeration value="ANNULE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ETAT_PARTIE" nillable="true" type="tns:ETAT_PARTIE" />
+  <xs:complexType name="JoueurPartieDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Joueur" nillable="true" type="tns:JoueurDto" />
+      <xs:element minOccurs="0" name="JoueurId" type="xs:int" />
+      <xs:element minOccurs="0" name="OrdreJoueur" type="xs:int" />
+      <xs:element minOccurs="0" name="PartieCourante" nillable="true" type="tns:PartieDto" />
+      <xs:element minOccurs="0" name="PartieId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JoueurPartieDto" nillable="true" type="tns:JoueurPartieDto" />
+  <xs:complexType name="JoueurDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Pseudo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JoueurDto" nillable="true" type="tns:JoueurDto" />
+  <xs:complexType name="ArrayOfPartieDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PartieDto" nillable="true" type="tns:PartieDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPartieDto" nillable="true" type="tns:ArrayOfPartieDto" />
+  <xs:complexType name="CarteDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeEffet" type="xs:int" />
+      <xs:element minOccurs="0" name="Cout" type="xs:int" />
+      <xs:element minOccurs="0" name="Effet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EffetComplet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarteDto" nillable="true" type="tns:CarteDto" />
+  <xs:complexType name="ArrayOfJoueurPartieDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JoueurPartieDto" nillable="true" type="tns:JoueurPartieDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJoueurPartieDto" nillable="true" type="tns:ArrayOfJoueurPartieDto" />
+  <xs:complexType name="ArrayOfDeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeDto" nillable="true" type="tns:DeDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeDto" nillable="true" type="tns:ArrayOfDeDto" />
+  <xs:complexType name="DeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Valeur" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeDto" nillable="true" type="tns:DeDto" />
+  <xs:complexType name="ArrayOfCarteDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarteDto" nillable="true" type="tns:CarteDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarteDto" nillable="true" type="tns:ArrayOfCarteDto" />
+  <xs:complexType name="GameStateDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adversaires" nillable="true" type="tns:ArrayOfJoueurStateDto" />
+      <xs:element minOccurs="0" name="Cartes" nillable="true" type="tns:ArrayOfCarteDto" />
+      <xs:element minOccurs="0" name="Des" nillable="true" type="tns:ArrayOfDeDto" />
+      <xs:element minOccurs="0" name="Etat" type="tns:ETAT_PARTIE" />
+      <xs:element minOccurs="0" name="JoueurCourant" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GameStateDto" nillable="true" type="tns:GameStateDto" />
+  <xs:complexType name="ArrayOfJoueurStateDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JoueurStateDto" nillable="true" type="tns:JoueurStateDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJoueurStateDto" nillable="true" type="tns:ArrayOfJoueurStateDto" />
+  <xs:complexType name="JoueurStateDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NbCartes" type="xs:int" />
+      <xs:element minOccurs="0" name="NbDes" type="xs:int" />
+      <xs:element minOccurs="0" name="Pseudo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JoueurStateDto" nillable="true" type="tns:JoueurStateDto" />
+</xs:schema>

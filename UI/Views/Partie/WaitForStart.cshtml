@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "En attente des joueurs";
+}
+
+@model UI.Models.LoadScreenModel
+
+<h2>
+    Nouvelle partie - @Model.Partie.Nom - @(TempData["statut"])
+
+</h2>
+<div id="infos">
+    @{
+    Html.RenderPartial("RefreshLoadScreen", Model.Participants);
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+        setInterval(function () {
+            $('#infos').load('/Partie/RefreshLoadScreen');
+            var status = $('#status').attr('data-status');
+
+            if (status === "go") {
+                location.href = '/Plateau/Index';
+            }
+
+        }, 10000);
+    });
+</script>

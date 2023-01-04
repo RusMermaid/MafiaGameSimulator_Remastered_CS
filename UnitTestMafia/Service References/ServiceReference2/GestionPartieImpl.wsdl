@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GestionPartieImpl" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50368/GestionPartieImpl.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50368/GestionPartieImpl.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50368/GestionPartieImpl.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Domain" />
+      <xsd:import schemaLocation="http://localhost:50368/GestionPartieImpl.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Domain.Dto" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGestionPartie_CreerPartie_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreerPartie" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_CreerPartie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreerPartieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_RejoindrePartie_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejoindrePartie" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_RejoindrePartie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejoindrePartieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_CommencerPartie_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommencerPartie" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_CommencerPartie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommencerPartieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_GetPartieDebug_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartieDebug" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_GetPartieDebug_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPartieDebugResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_VoirPartie_InputMessage">
+    <wsdl:part name="parameters" element="tns:VoirPartie" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_VoirPartie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VoirPartieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_LancerPartie_InputMessage">
+    <wsdl:part name="parameters" element="tns:LancerPartie" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_LancerPartie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LancerPartieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_piocherCarte_InputMessage">
+    <wsdl:part name="parameters" element="tns:piocherCarte" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_piocherCarte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:piocherCarteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_getJoueurParticipantDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:getJoueurParticipantDto" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_getJoueurParticipantDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getJoueurParticipantDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_getListJoueurParticipantsDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:getListJoueurParticipantsDto" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_getListJoueurParticipantsDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getListJoueurParticipantsDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_getListDesDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:getListDesDto" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_getListDesDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getListDesDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_getListCartesDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:getListCartesDto" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_getListCartesDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getListCartesDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_getJoueurDto_InputMessage">
+    <wsdl:part name="parameters" element="tns:getJoueurDto" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_getJoueurDto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getJoueurDtoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_lancerDes_InputMessage">
+    <wsdl:part name="parameters" element="tns:lancerDes" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_lancerDes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:lancerDesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_autoriserCarte_InputMessage">
+    <wsdl:part name="parameters" element="tns:autoriserCarte" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_autoriserCarte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:autoriserCarteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_donnerDe_InputMessage">
+    <wsdl:part name="parameters" element="tns:donnerDe" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_donnerDe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:donnerDeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_next_InputMessage">
+    <wsdl:part name="parameters" element="tns:next" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_next_OutputMessage">
+    <wsdl:part name="parameters" element="tns:nextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_supprimerUnDe_InputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerUnDe" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_supprimerUnDe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerUnDeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_supprimerDeuxDes_InputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerDeuxDes" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_supprimerDeuxDes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:supprimerDeuxDesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_donnerDeAGaucheOuDroite_InputMessage">
+    <wsdl:part name="parameters" element="tns:donnerDeAGaucheOuDroite" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_donnerDeAGaucheOuDroite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:donnerDeAGaucheOuDroiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_rejouerEtChangementDeSens_InputMessage">
+    <wsdl:part name="parameters" element="tns:rejouerEtChangementDeSens" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_rejouerEtChangementDeSens_OutputMessage">
+    <wsdl:part name="parameters" element="tns:rejouerEtChangementDeSensResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_prendreUneCarteDUnJoueur_InputMessage">
+    <wsdl:part name="parameters" element="tns:prendreUneCarteDUnJoueur" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_prendreUneCarteDUnJoueur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:prendreUneCarteDUnJoueurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_donnerUnDeAUnJoueur_InputMessage">
+    <wsdl:part name="parameters" element="tns:donnerUnDeAUnJoueur" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_donnerUnDeAUnJoueur_OutputMessage">
+    <wsdl:part name="parameters" element="tns:donnerUnDeAUnJoueurResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_ciblerJoueurQUUneCarte_InputMessage">
+    <wsdl:part name="parameters" element="tns:ciblerJoueurQUUneCarte" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_ciblerJoueurQUUneCarte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ciblerJoueurQUUneCarteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_passeSonTour_InputMessage">
+    <wsdl:part name="parameters" element="tns:passeSonTour" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_passeSonTour_OutputMessage">
+    <wsdl:part name="parameters" element="tns:passeSonTourResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_piocheTroisCartes_InputMessage">
+    <wsdl:part name="parameters" element="tns:piocheTroisCartes" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_piocheTroisCartes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:piocheTroisCartesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_plusQueDeuxCartesPourLesAutres_InputMessage">
+    <wsdl:part name="parameters" element="tns:plusQueDeuxCartesPourLesAutres" />
+  </wsdl:message>
+  <wsdl:message name="IGestionPartie_plusQueDeuxCartesPourLesAutres_OutputMessage">
+    <wsdl:part name="parameters" element="tns:plusQueDeuxCartesPourLesAutresResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGestionPartie">
+    <wsdl:operation name="CreerPartie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/CreerPartie" message="tns:IGestionPartie_CreerPartie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/CreerPartieResponse" message="tns:IGestionPartie_CreerPartie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejoindrePartie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/RejoindrePartie" message="tns:IGestionPartie_RejoindrePartie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/RejoindrePartieResponse" message="tns:IGestionPartie_RejoindrePartie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommencerPartie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/CommencerPartie" message="tns:IGestionPartie_CommencerPartie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/CommencerPartieResponse" message="tns:IGestionPartie_CommencerPartie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPartieDebug">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/GetPartieDebug" message="tns:IGestionPartie_GetPartieDebug_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/GetPartieDebugResponse" message="tns:IGestionPartie_GetPartieDebug_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VoirPartie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/VoirPartie" message="tns:IGestionPartie_VoirPartie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/VoirPartieResponse" message="tns:IGestionPartie_VoirPartie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LancerPartie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/LancerPartie" message="tns:IGestionPartie_LancerPartie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/LancerPartieResponse" message="tns:IGestionPartie_LancerPartie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="piocherCarte">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/piocherCarte" message="tns:IGestionPartie_piocherCarte_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/piocherCarteResponse" message="tns:IGestionPartie_piocherCarte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getJoueurParticipantDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/getJoueurParticipantDto" message="tns:IGestionPartie_getJoueurParticipantDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/getJoueurParticipantDtoResponse" message="tns:IGestionPartie_getJoueurParticipantDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getListJoueurParticipantsDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/getListJoueurParticipantsDto" message="tns:IGestionPartie_getListJoueurParticipantsDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/getListJoueurParticipantsDtoResponse" message="tns:IGestionPartie_getListJoueurParticipantsDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getListDesDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/getListDesDto" message="tns:IGestionPartie_getListDesDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/getListDesDtoResponse" message="tns:IGestionPartie_getListDesDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getListCartesDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/getListCartesDto" message="tns:IGestionPartie_getListCartesDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/getListCartesDtoResponse" message="tns:IGestionPartie_getListCartesDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getJoueurDto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/getJoueurDto" message="tns:IGestionPartie_getJoueurDto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/getJoueurDtoResponse" message="tns:IGestionPartie_getJoueurDto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="lancerDes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/lancerDes" message="tns:IGestionPartie_lancerDes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/lancerDesResponse" message="tns:IGestionPartie_lancerDes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="autoriserCarte">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/autoriserCarte" message="tns:IGestionPartie_autoriserCarte_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/autoriserCarteResponse" message="tns:IGestionPartie_autoriserCarte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="donnerDe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/donnerDe" message="tns:IGestionPartie_donnerDe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/donnerDeResponse" message="tns:IGestionPartie_donnerDe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="next">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/next" message="tns:IGestionPartie_next_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/nextResponse" message="tns:IGestionPartie_next_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="supprimerUnDe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/supprimerUnDe" message="tns:IGestionPartie_supprimerUnDe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/supprimerUnDeResponse" message="tns:IGestionPartie_supprimerUnDe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="supprimerDeuxDes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/supprimerDeuxDes" message="tns:IGestionPartie_supprimerDeuxDes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/supprimerDeuxDesResponse" message="tns:IGestionPartie_supprimerDeuxDes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="donnerDeAGaucheOuDroite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/donnerDeAGaucheOuDroite" message="tns:IGestionPartie_donnerDeAGaucheOuDroite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/donnerDeAGaucheOuDroiteResponse" message="tns:IGestionPartie_donnerDeAGaucheOuDroite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="rejouerEtChangementDeSens">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/rejouerEtChangementDeSens" message="tns:IGestionPartie_rejouerEtChangementDeSens_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/rejouerEtChangementDeSensResponse" message="tns:IGestionPartie_rejouerEtChangementDeSens_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="prendreUneCarteDUnJoueur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/prendreUneCarteDUnJoueur" message="tns:IGestionPartie_prendreUneCarteDUnJoueur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/prendreUneCarteDUnJoueurResponse" message="tns:IGestionPartie_prendreUneCarteDUnJoueur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="donnerUnDeAUnJoueur">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/donnerUnDeAUnJoueur" message="tns:IGestionPartie_donnerUnDeAUnJoueur_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/donnerUnDeAUnJoueurResponse" message="tns:IGestionPartie_donnerUnDeAUnJoueur_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ciblerJoueurQUUneCarte">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/ciblerJoueurQUUneCarte" message="tns:IGestionPartie_ciblerJoueurQUUneCarte_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/ciblerJoueurQUUneCarteResponse" message="tns:IGestionPartie_ciblerJoueurQUUneCarte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="passeSonTour">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/passeSonTour" message="tns:IGestionPartie_passeSonTour_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/passeSonTourResponse" message="tns:IGestionPartie_passeSonTour_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="piocheTroisCartes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/piocheTroisCartes" message="tns:IGestionPartie_piocheTroisCartes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/piocheTroisCartesResponse" message="tns:IGestionPartie_piocheTroisCartes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="plusQueDeuxCartesPourLesAutres">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGestionPartie/plusQueDeuxCartesPourLesAutres" message="tns:IGestionPartie_plusQueDeuxCartesPourLesAutres_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGestionPartie/plusQueDeuxCartesPourLesAutresResponse" message="tns:IGestionPartie_plusQueDeuxCartesPourLesAutres_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IGestionPartie" type="tns:IGestionPartie">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreerPartie">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/CreerPartie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejoindrePartie">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/RejoindrePartie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommencerPartie">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/CommencerPartie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPartieDebug">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/GetPartieDebug" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VoirPartie">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/VoirPartie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LancerPartie">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/LancerPartie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="piocherCarte">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/piocherCarte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJoueurParticipantDto">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/getJoueurParticipantDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListJoueurParticipantsDto">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/getListJoueurParticipantsDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListDesDto">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/getListDesDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListCartesDto">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/getListCartesDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJoueurDto">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/getJoueurDto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lancerDes">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/lancerDes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoriserCarte">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/autoriserCarte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="donnerDe">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/donnerDe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="next">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/next" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="supprimerUnDe">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/supprimerUnDe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="supprimerDeuxDes">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/supprimerDeuxDes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="donnerDeAGaucheOuDroite">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/donnerDeAGaucheOuDroite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rejouerEtChangementDeSens">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/rejouerEtChangementDeSens" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="prendreUneCarteDUnJoueur">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/prendreUneCarteDUnJoueur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="donnerUnDeAUnJoueur">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/donnerUnDeAUnJoueur" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ciblerJoueurQUUneCarte">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/ciblerJoueurQUUneCarte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="passeSonTour">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/passeSonTour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="piocheTroisCartes">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/piocheTroisCartes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="plusQueDeuxCartesPourLesAutres">
+      <soap:operation soapAction="http://tempuri.org/IGestionPartie/plusQueDeuxCartesPourLesAutres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GestionPartieImpl">
+    <wsdl:port name="BasicHttpBinding_IGestionPartie" binding="tns:BasicHttpBinding_IGestionPartie">
+      <soap:address location="http://localhost:50368/GestionPartieImpl.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

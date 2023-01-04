@@ -1,0 +1,12 @@
+﻿<h3>
+    Créer partie
+</h3>
+
+@using (Html.BeginForm("Creer", "Partie", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Nom partie")
+        @Html.TextBox("nomPartie", "", new { @class = "form - control" })
+    </div>
+    <input type="submit" value="Creer Partie" class="btn btn-primary" />
+}

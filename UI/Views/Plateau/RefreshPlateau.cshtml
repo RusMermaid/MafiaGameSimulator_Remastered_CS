@@ -1,0 +1,203 @@
+﻿@model UI.Models.ModelPlateau
+
+@{
+    ViewBag.Title = "Partie" + ViewData["partie"];
+}
+
+
+<div class="row">
+    @foreach (var adv in Model.Adversaires)
+    {
+
+    <div class="col-lg-2 col-lg-offset-1">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                @if (Model.JoueurCourant.Pseudo.Equals(adv.Pseudo))
+                {
+                    <h3 class="panel-title adversaire-actif">
+                        @adv.Pseudo
+                    </h3>
+                }
+                else
+                {
+                    <h3 class="panel-title adversaire">
+                        @adv.Pseudo
+                    </h3>
+                }
+            </div>
+            <div class="panel-body">
+                <div class="well des-adversaire">
+                    @foreach (var d in adv.Des)
+                    {
+
+                        <img src="~/Images/de_@(d.Valeur)_mini.svg" data-id="@d.Id" data-valeur="@d.Valeur" />
+                    }
+                </div>
+
+                <hr />
+                <div class="well cartes-adversaire">
+                    @foreach (var c in adv.Cartes)
+                    {
+                        <img src="~/Images/dos_carte_mini.svg" data-id="@c.Id" data-code-effet="@c.CodeEffet"
+                             data-cout="@c.Cout" data-effet="@c.Effet" data-effet-complet="@c.EffetComplet" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div id="pioche" class="col-lg-3 col-lg-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class="panel-title">Pioche</p>
+                </div>
+                <div class="panel-body">
+                    <a data-toggle="popover">
+                        <img src="~/Images/dos_carte.svg" id="pioche" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-lg-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class="panel-title">Defausse</p>
+                </div>
+                <div class="panel-body">
+                    @if (Model.DerniereCarteJouee != null)
+                    {
+                        <img src="~/Images/carte_@(Model.DerniereCarteJouee.CodeEffet).svg" id="defausse"
+                             onclick="PopoverDefausse()" />
+                    }
+                    else {
+                        <p>Vide</p>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-lg-offset-1" id="des-joueur-courant">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class="panel-title">Dés du joueur courant</p>
+                </div>
+                <div class="panel-body">
+                        <a id="btn-lancer-des" onclick="LancerDes()" class="btn btn-primary" style="display:none;">Lancer dés</a>
+                    @foreach (var d in Model.DesCourant)
+                    {
+                        <img src="~/Images/de_@(d.Valeur).svg" data-id="@d.Id" data-valeur="@d.Valeur" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Votre main - <span id="votre-nom">@Model.Client</span>
+                </h3>
+               
+                <a href="/Plateau/Next" class="btn btn-warning pull-right fire">
+                    Passer son tour
+                </a>
+                @if (Model.passeTour != null && Model.Client.Equals(Model.passeTour))
+                {
+                    <script type="text/javascript">
+                        $(".fire").click();
+                    </script>
+                }
+
+                <a href="/Plateau/QuitterPartie" class="btn btn-danger pull-right">
+                    Quitter partie
+                </a>
+            </div>
+            <div class="panel-body">
+                <div class="well vos-des col-lg-4">
+                    @foreach (var d in Model.MesDes)
+                    {
+
+                        <img src="~/Images/de_@(d.Valeur).svg" class="de-en-main" data-id="@d.Id" data-valeur="@d.Valeur"
+                             onclick="JouerDe(@d.Id,&quot;@d.Valeur&quot;)" />
+                    }
+                </div>
+
+                <div class="well vos-cartes col-lg-8">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+
+                            @{
+                                var NbCartes = Model.MesCartes.Count;
+                                var j = 0;
+                            }
+
+                            <div class="item active">
+                                <div class="row">
+                                    @for (; j < NbCartes && j < 4; j++)
+                                    {
+                                        var c = Model.MesCartes[j];
+
+                                        <div class="col-sm-3">
+                                            <img src="~/Images/carte_@(c.CodeEffet).svg" data-id="@c.Id" data-code-effet="@(c.CodeEffet)"
+                                                 data-cout="@c.Cout" data-effet="@c.Effet" data-effet-complet="@c.EffetComplet" 
+                                                 class="img-responsive carte-en-main" ondblclick="JouerCarte(@c.Id,@c.CodeEffet)"
+                                                 onclick="PopoverCartesMain()"/>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+
+                            @{
+                                var NbCartesRestantes = NbCartes - j;
+                            }
+
+                            @for (var i = 0; NbCartesRestantes > 0; i++)
+                            {
+                                <div class="item active">
+                                    <div class="row">
+                                        @for (j = 0; j < NbCartesRestantes && j < 4; j++)
+                                        {
+
+                                            var c = Model.MesCartes[(i * 4) + j];
+
+                                            <div class="col-sm-3">
+                                                <img src="~/Images/carte_@(c.CodeEffet).svg" data-id="@c.Id" data-code-effet="@c.CodeEffet"
+                                                     data-cout="@c.Cout" data-effet="@c.Effet" data-effet-complet="@c.EffetComplet" 
+                                                     class="img-responsive carte-en-main" ondblclick="JouerCarte(@c.Id,@c.CodeEffet)" 
+                                                     onclick="PopoverCartesMain()"/>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                NbCartesRestantes -= j;
+                            }
+
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display:none" id="vainqueur">
+    @Model.Vainqueur
+</div>
