@@ -1,1 +1,5 @@
 *.cs linguist-language=C#
+*.cshtml linguist-language=C#
+*.css linguist-language=Python
+*.css.map linguist-language=Python
+*.js linguist-language=Java
